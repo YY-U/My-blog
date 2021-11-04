@@ -1,4 +1,10 @@
 media/
 myvenv-django-py39/
 db.sqlite3
+/static
 *.md
+*.pyc
+*~
+/.vscode
+__pycache__
+.DS_Store
