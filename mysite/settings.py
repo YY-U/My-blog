@@ -144,7 +144,7 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-#STATIC_ROOT = str(BASE_DIR/'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 ################# acounts app 設定 ###################
 SITE_ID = 1
