@@ -1,5 +1,5 @@
 Django~=3.2.6
-jango-widget-tweaks~=1.4.8
-jango-allauth~=0.41.0
+django-widget-tweaks~=1.4.8
+django-allauth~=0.41.0
 Pillow~=2.2.1
 
