@@ -8,13 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>マイブログ</title>
+    <title>Y.Y's ブログ</title>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" herf="/">ブログ</a>
+            <a class="navbar-brand" herf="/">Y.Y's ブログ</a>
                  <ul class="navbar-nav ml-auto">
                      <li class="nav-item">
                          <a class="nav-link" href="/">ホーム</a>
@@ -27,9 +27,9 @@
                               <a class="nav-link" href="{% url 'account_logout' %}">ログアウト</a>
                           </li>
                      {% else %}
-                            <li class="nav-item">
+                            <!--<li class="nav-item">
                                 <a class="nav-link" href="{% url 'account_signup' %}">サインアップ</a>
-                            </li>
+                            </li>-->
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'account_login' %}">ログイン</a>
                             </li>

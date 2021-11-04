@@ -1,3 +1,4 @@
 media/
 myvenv-django-py39/
+db.sqlite3
 *.md
