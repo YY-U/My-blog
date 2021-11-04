@@ -28,7 +28,9 @@ SECRET_KEY = 'ycy#^q*0tst5f(%&vu8w0hbyfcutip6n615h7xs1sys@&(#7d3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = []
+#DEBUG が True に設定されていて、ALLOWED_HOSTS が空のリストの時は、自動的に ['localhost', '127.0.0.1', '[::1]'] という3つのホストに対してチェックが行われます。
+ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']#pythonanywhereデプロイ
 #ALLOWED_HOSTS = ['*']#herokuデプロイ
 
 
@@ -88,7 +90,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': str(os.path.join(BASE_DIR, 'db.sqlite3')),
     }
 }
 
@@ -139,6 +141,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+
+
 STATIC_URL = '/static/'
 #STATIC_ROOT = str(BASE_DIR/'staticfiles')
 
@@ -151,3 +155,8 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
