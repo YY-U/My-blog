@@ -1,0 +1,55 @@
+{% load static %}<!--静的ファイルの読み込み-->
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>マイブログ</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" herf="/">ブログ</a>
+                 <ul class="navbar-nav ml-auto">
+                     <li class="nav-item">
+                         <a class="nav-link" href="/">ホーム</a>
+                     </li>
+                     {% if user.is_authenticated %}<!--ユーザがログインしているかどうか-->>
+                          <li class="nav-item">
+                              <a class="nav-link" href="{% url 'post_new' %}">投稿</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="{% url 'account_logout' %}">ログアウト</a>
+                          </li>
+                     {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'account_signup' %}">サインアップ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'account_login' %}">ログイン</a>
+                            </li>
+                     {% endif %}
+                 </ul>
+         </div>
+     </nav>
+
+     <main>
+         <div class="container">
+             {% block content %} <!--動的コンテント-->>
+             {% endblock %}
+     </main>
+
+     <footer>
+         <p class="m-0 text-center text-dark">Copyright &copy; Y.Y</p>
+     </footer>
+     {% block extra_js %}
+     {% endblock %}
+
+    
+</body>
+</html>

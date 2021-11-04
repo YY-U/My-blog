@@ -1,0 +1,45 @@
+{% extends "app/base.html" %} <!--連携することができる-->
+
+{% block content %}
+
+<div class="row my-4">
+    <div class="col-md-8">
+        {% for post in post_data %}
+            <div class="card mb-4">
+                {% if post.image %}<!--画像アップロード機能-->
+                <img src="{{ post.image.url }}" alt="" class="card-img-top index-img">
+                {% endif %}
+                <div class="card-body">
+                    <h2 class="card-title">{{ post.title }}</h2>
+                    <p class="card-text">{{post.content|truncatechars:100}}</p>
+                    <!--<div class="btn btn-warning">詳細</div>-->
+                    <div class="btn btn-outline-info">詳細</div>
+                </div>
+                <div class="card-footer text-muted">
+                    {{ post.created|date }} by {{ post.author }}
+                </div>
+                <a href="{% url 'post_detail' post.id %}" class="stretched-link"></a>
+                <!--リンク指定-->
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- <div class="col-md4"> -->
+    <div class="col-md-8">
+        <div class="card">
+            <h5 class="card-header">このブログについて</h5>
+            <div class="card-body">
+                <p>ステップ1</p>
+                <p class="mb-0">
+                    Djangoによるマイブログの開発です。
+                    よりよいものが作れるように頑張りたいです。
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+{% endblock %}
