@@ -12,9 +12,15 @@
 <p>{{ post_data.content | linebreaksbr }}</p>
 {% if user.is_authenticated %}
       <hr>
-      <div class="d-flex mb-5">
+      <div class="d-flex mb-5"><!--d-flex以下がコンテナ化，コンテナ要素が横並びになる-->
+            <a href="{% url 'index' %}" class="btn btn-secondary mr-2">戻る</a>
             <a href="{% url 'post_edit' post_data.id %}" class="btn btn-warning mr-2">編集する</a>
-            <a href="{% url 'post_delete' post_data.id %}" class="btn btn-danger">削除する</a>
+            <a href="{% url 'post_delete' post_data.id %}" class="btn btn-danger mr-2">削除する</a>
+            <!--ml-x or auto,mr-x or auto:それぞれ左・右に余白を作る-->
       </div>
+{% else %}
+      <hr>
+      <div class="d-flex mb-5">
+            <a href="{% url 'index' %}" class="btn btn-secondary mr-2">戻る</a>
 {% endif %}
 {% endblock %}
